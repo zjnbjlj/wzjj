@@ -1,0 +1,128 @@
+<view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+<!-- 身份证明名称： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">身份证明名称：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{IDName}}</view> 
+    </view>
+  </view>
+<!-- 身份证明号码： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">身份证明号码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{IDCardLabel}}</view> 
+    </view>
+  </view>
+<!-- 姓名： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">姓名：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{Name}}</view> 
+    </view>
+  </view>
+<!--原手机号码：  -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">原手机号码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{OldMobilePhone}}</view> 
+    </view>
+  </view>
+<!-- 新手机号码： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">新手机号码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input bindinput="NewMobileInput" maxlength="11" type="number" class="weui-input" placeholder="请输入手机号码" value="{{NewMobilePhone}}"  placeholder-class="weui-input-placeholder" />
+    </view>
+  </view>
+  <!--验证码  -->
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">验证码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入验证码" type="number" value="{{NewMobileVerifyCode}}" bindinput="verifyCodeInput" placeholder-class="weui-input-placeholder" />
+    </view>
+    <view class="weui-cell__ft">
+      <view class="{{NewMobileVerifyInfo == '获取验证码'?'weui-vcode-btn':'weui-vcode-btn_disabled'}}" bindtap="getNewMobileVerifyCode">{{NewMobileVerifyInfo}}</view>
+    </view>
+  </view>
+  <!--原电话号码：  -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">原电话号码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{OldTelePhone}}</view> 
+    </view>
+  </view>
+  <!-- 新电话号码： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">新电话号码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input bindinput="NewTeleInput" maxlength="12" type="number" class="weui-input" placeholder="请输入电话号码" value="{{NewTelePhone}}"  placeholder-class="weui-input-placeholder" />
+    </view>
+  </view>
+  <!--原邮政编码：  -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">原邮政编码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{OldMail}}</view> 
+    </view>
+  </view>
+  <!-- 新邮政编码： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">新邮政编码：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input bindinput="NewMailInput" maxlength="6" type="number" class="weui-input" placeholder="请输入邮政编码" value="{{NewMail}}"  placeholder-class="weui-input-placeholder" />
+    </view>
+  </view>
+  <!--原联系地址：  -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">原联系地址：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="weui-label_value">{{OldAddress}}</view> 
+    </view>
+  </view>
+  <!-- 新联系地址： -->
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">新联系地址：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input bindinput="NewAddressInput" class="weui-input" placeholder="请输入联系地址" value="{{NewAddress}}"  placeholder-class="weui-input-placeholder" />
+    </view>
+  </view>
+  <!-- 受理单位 -->
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd">
+      <view class="weui-label">新受理单位：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="infoCheckDeptChange" value="{{infoCheckDeptIndex}}" range-key="{{'name'}}" range="{{infoCheckDepts}}">
+        <view class="weui-select">{{infoCheckDepts[infoCheckDeptIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+  <view style="margin-top:20px;margin-bottom:20px">
+    <button class="mybutton" type='default' size='default' bindtap="preClick">上一步</button>
+    <button class="mybutton" type='primary' size='default' bindtap="nextClick">下一步</button>
+  </view>
+</view>

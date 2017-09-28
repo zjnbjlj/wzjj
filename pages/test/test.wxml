@@ -1,0 +1,4 @@
+<view wx:if="{{length > 5}}"> 1 </view>
+<view wx:elif="{{length > 2}}"> 2 </view>
+<view wx:else> 3 </view>
+<view hidden="{{length > 5}}">434234</view>
